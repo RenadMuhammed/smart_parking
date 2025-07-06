@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map - Cairo, Egypt</title>
+    <!-- Link to Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Set the map size */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaflet Map - Cairo, Egypt</h1>
+
+    <!-- Create a div element where the map will be displayed -->
+    <div id="map"></div>
+
+    <!-- Link to Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the Map and set it to Cairo, Egypt (latitude, longitude)
+        var map = L.map('map').setView([30.0444, 31.2357], 13); // Cairo's coordinates
+
+        // Add OpenStreetMap Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a Marker at the center (Cairo)
+        var marker = L.marker([30.0444, 31.2357]).addTo(map);
+        marker.bindPopup("<b>Welcome to Cairo!</b><br>This is the capital of Egypt.").openPopup();
+    </script>
+</body>
+</html>
